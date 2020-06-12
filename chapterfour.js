@@ -16,4 +16,39 @@ let sum = (ary)=>{
     return count;
 }
 
-console.log(sum(range(1,10,1)))
+//console.log(sum(range(1,10,1)))
+
+
+let reverseArray = (ary) =>{
+
+    let reveresedAry = [];
+    for(let i = ary.length-1; i>=0; i--){
+        reveresedAry.push(ary[i])
+    }
+    return reveresedAry;
+
+}
+
+let reverseInPlaceWorker = (ary, i,j) =>{
+    
+    if (i >= j ){
+        return ary;
+    } 
+    else {
+        let bucket = ary[i];
+        ary[i] = ary[j];
+        ary[j] = bucket;
+        i += 1;
+        j -= 1;
+        return reverseInPlaceWorker(ary, i, j)
+    }
+}
+
+let reverseAryInPlace = (ary) =>{
+    
+    console.log(reverseInPlaceWorker(ary,0,ary.length-1));
+    return ary
+}
+
+console.log(reverseArray([1,2,3,4]))
+console.log(reverseAryInPlace([1,2,3]))
