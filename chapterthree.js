@@ -17,7 +17,7 @@ let isEven = (num) => {
     }
 }
 
-console.log(isEven(21))
+//console.log(isEven(21))
 
 let countB = (str) => {
     count = 0;
@@ -29,7 +29,7 @@ let countB = (str) => {
     return count;
 }
 
-console.log(countB("BBBbbbBBB"))
+//console.log(countB("BBBbbbBBB"))
 
 let countChar  = (str, char) =>{
 
@@ -42,4 +42,7 @@ let countChar  = (str, char) =>{
 
     return count;
 }
-console.log(countChar("BBBbbbBBB","b"))
+//console.log(countChar("BBBbbbBBB","b"))
+
+
+
