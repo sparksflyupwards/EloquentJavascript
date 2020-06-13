@@ -59,11 +59,21 @@ let arrayToList = (ary) =>{
        
         for(let i = 0; i < ary.length; i++){
             list.value = ary.splice(0, 1)[0];
-            list.rest = (ary.length>0) ? arrayToList(ary) : null
+            list.rest = (ary.length>=0) ? arrayToList(ary) : null
         }
     }
     
     return list
 }
 
-console.log(arrayToList([0,1,2,3]))
+let listToArray = (list) => {
+    let ary = [];
+
+    while(list.rest != null){
+        ary.push(list.value)
+        list = list.rest;
+    }
+
+    return ary;
+}
+console.log(listToArray(arrayToList([0,1,2,3])))
