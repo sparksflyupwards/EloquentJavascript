@@ -76,4 +76,21 @@ let listToArray = (list) => {
 
     return ary;
 }
-console.log(listToArray(arrayToList([0,1,2,3])))
+
+let prependWorker = (list, val, n, i) =>{
+    if(i==n){
+        newList = {value: val, rest: list}
+        list = newList;
+        return list;
+    }
+    if(list == null){
+        return;
+    }
+    return prependWorker(list.rest, val, n, i++)
+
+}
+let prepend = (list, value, n) =>{
+    return prependWorker(list,value,n,0)
+}
+//console.log(listToArray(arrayToList([0,1,2,3])))
+console.log(prepend(arrayToList([0,1,2,3]), 55, 1))
