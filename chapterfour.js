@@ -50,5 +50,20 @@ let reverseAryInPlace = (ary) =>{
     return ary
 }
 
-console.log(reverseArray([1,2,3,4]))
-console.log(reverseAryInPlace([1,2,3]))
+//console.log(reverseArray([1,2,3,4]))
+//console.log(reverseAryInPlace([1,2,3]))
+
+let arrayToList = (ary) =>{
+    let list = {value: undefined, rest: undefined};
+    if(ary.length>=1){
+       
+        for(let i = 0; i < ary.length; i++){
+            list.value = ary.splice(0, 1)[0];
+            list.rest = (ary.length>0) ? arrayToList(ary) : null
+        }
+    }
+    
+    return list
+}
+
+console.log(arrayToList([0,1,2,3]))
