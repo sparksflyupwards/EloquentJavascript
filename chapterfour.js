@@ -91,4 +91,34 @@ let prepend = (list, value, n) =>{
     return prependWorker(list,value,n,0)
 }
 //console.log(listToArray(arrayToList([0,1,2,3])))
-console.log(listToArray(prepend(arrayToList([0,1,2,3]), 55, 2)))
+//console.log(listToArray(prepend(arrayToList([0,1,2,3]), 55, 2)))
+let deepEqual = (x, y) =>{
+
+    if(x === y){
+        return true;
+    }
+    else if(typeof x == "object" && x != "null" && typeof y == "object" && y != "null") {
+        xKeys = Object.keys(x)
+        yKeys = Object.keys(y)
+
+        if(xKeys.length != yKeys.length){
+            return false;
+        }
+        
+        for(property in x){
+            if(y.hasOwnProperty(property)){
+                if(! deepEqual(x[property], y[property])){
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        return true
+        
+    }
+    else {
+        return true;
+    }
+}
