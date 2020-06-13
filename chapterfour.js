@@ -78,19 +78,17 @@ let listToArray = (list) => {
 }
 
 let prependWorker = (list, val, n, i) =>{
-    if(i==n){
+    console.log(i +" "+n)
+    if(i>=n || list == undefined){
         newList = {value: val, rest: list}
         list = newList;
         return list;
     }
-    if(list == null){
-        return;
-    }
-    return prependWorker(list.rest, val, n, i++)
+    return {value:list.value, rest:prependWorker(list.rest, val, n, i+1)}
 
 }
 let prepend = (list, value, n) =>{
     return prependWorker(list,value,n,0)
 }
 //console.log(listToArray(arrayToList([0,1,2,3])))
-console.log(prepend(arrayToList([0,1,2,3]), 55, 1))
+console.log(listToArray(prepend(arrayToList([0,1,2,3]), 55, 2)))
